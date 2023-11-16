@@ -38,13 +38,13 @@ const routes: Routes = [
     component: HomeComponent,
     resolve: {
       breadcrumb: (
-        _route: ActivatedRouteSnapshot,
+        route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
       ) => {
         console.log('resolve home');
         return {
           label: 'home',
-          url: state.url,
+          url: route.url.join('/'),
         };
       },
     },
@@ -55,13 +55,13 @@ const routes: Routes = [
     component: GrandchildComponent,
     resolve: {
       breadcrumb: (
-        _route: ActivatedRouteSnapshot,
+        route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
       ) => {
         console.log('resolve grandchild');
         return {
           label: 'grandchild',
-          url: state.url,
+          url: route.url.join('/'),
         };
       },
     },
